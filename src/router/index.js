@@ -51,10 +51,10 @@ export const constantRouterMap = [
     meta: {title: 'Example', icon: 'example'},
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: {title: 'Table', icon: 'table'}
+        path: 'Form',
+        name: 'Form',
+        component: () => import('@/views/form/index'),
+        meta: {title: 'Form', icon: 'form'}
       },
       {
         path: 'tree',
@@ -63,90 +63,7 @@ export const constantRouterMap = [
         meta: {title: 'Tree', icon: 'tree'}
       }
     ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: {title: 'Form', icon: 'form'}
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: {title: 'Menu1'},
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: {title: 'Menu1-1'}
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: {title: 'Menu1-2'},
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: {title: 'Menu1-2-1'}
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: {title: 'Menu1-2-2'}
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: {title: 'Menu1-3'}
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: {title: 'menu2'}
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: {title: 'External Link', icon: 'link'}
-      }
-    ]
   }
-
 ]
 
 export default new Router({
@@ -157,27 +74,35 @@ export default new Router({
 
 export const asyncRouterMap = [
   {
-    path: '/error',
+    path: '/rbac',
     component: Layout,
-    redirect: 'noredirect',
-    name: 'ErrorPages',
+    redirect: '/rbac',
+    name: '系统管理',
     meta: {
-      title: 'errorPages',
-      icon: '404',
+      title: '系统管理',
+      icon: 'table',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
     children: [
       {
-        path: '401',
-        component: () => import('@/views/errorPage/401'),
-        name: 'Page401',
-        meta: { title: 'page401', noCache: true }
+        path: 'role',
+        component: () => import('@/views/rbac/role/index'),
+        name: '角色',
+        meta: { title: '角色', noCache: true },
+        roles: ['admin'] // you can set roles in root nav
       },
       {
-        path: '404',
-        component: () => import('@/views/errorPage/404'),
-        name: 'Page404',
-        meta: { title: 'page404', noCache: true },
+        path: 'user',
+        component: () => import('@/views/rbac/user/index'),
+        name: '用户',
+        meta: { title: '用户', noCache: true },
+        roles: ['admin'] // you can set roles in root nav
+      },
+      {
+        path: 'menu',
+        component: () => import('@/views/rbac/menu/index'),
+        name: '菜单',
+        meta: { title: '菜单', noCache: true },
         roles: ['admin'] // you can set roles in root nav
       }
     ]

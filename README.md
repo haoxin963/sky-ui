@@ -31,3 +31,5 @@ npm run build
 npm run build --report
 ```
 ## 页面
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1116/111416_99b7e725_1207662.png "TIM截图20181116110704.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1116/111430_f9514e3f_1207662.png "TIM截图20181116110611.png")

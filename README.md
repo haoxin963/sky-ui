@@ -10,8 +10,9 @@
 - QQ交流群：428135328
 
 ## 说明
-- 后台码云地址：https://gitee.com/haoxin963/sky
-
+- 后台地址
+- 码云：https://gitee.com/haoxin963/sky
+- github：https://github.com/haoxin963/sky
 ## Build Setup
 
 ```bash
